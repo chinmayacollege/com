@@ -1048,31 +1048,43 @@ video::-webkit-media-controls-panel {
     transform-style: preserve-3d;
   }
 
+
   .video-carousel-card {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0.5;
     filter: grayscale(0.7);
-    pointer-events: auto;
+    pointer-events: none;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .video-carousel-card.active {
     opacity: 1 !important;
     filter: grayscale(0);
-    z-index: 100;
-    pointer-events: auto;
+    z-index: 100 !important;
+    pointer-events: auto !important;
   }
 
   .video-carousel-card video {
-    pointer-events: auto;
-    z-index: 10;
+    pointer-events: auto !important;
+    z-index: 10 !important;
     position: relative;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Ensure fullscreen button is always on top */
+  .video-carousel-card .video-fullscreen-btn {
+    z-index: 300 !important;
+    pointer-events: auto !important;
   }
 
   .video-carousel-card .caption-bar {
-    pointer-events: none;
+    pointer-events: none !important;
+    position: relative;
+    z-index: 1;
   }
 
   .video-carousel-card:nth-child(1) {
