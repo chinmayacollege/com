@@ -724,6 +724,21 @@ button {
     min-height: 52px;
   }
 
+  /* Form container mobile padding */
+  .form-container {
+    padding: var(--spacing-lg) var(--spacing-md) !important;
+    margin: 0 var(--spacing-sm);
+  }
+
+  /* Ensure form inputs and buttons don't overflow */
+  .form-container input,
+  .form-container textarea,
+  .form-container select,
+  .form-container button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .hero-content {
     flex-direction: column;
     text-align: center;
