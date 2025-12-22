@@ -103,23 +103,24 @@
                 <form id="admissionForm">
                     <div style="margin-bottom: var(--spacing-md);">
                         <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Full
-                            Name</label>
-                        <input type="text" id="admissionName"
+                            Name <span style="color: var(--color-red);">*</span></label>
+                        <input type="text" id="admissionName" required
                             style="width: 100%; padding: 10px; border: 1px solid var(--color-gray-300); border-radius: 4px;"
                             placeholder="John Doe">
                     </div>
                     <div style="margin-bottom: var(--spacing-md);">
                         <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Email
-                            Address</label>
-                        <input type="email" id="admissionEmail"
+                            Address <span style="color: var(--color-red);">*</span></label>
+                        <input type="email" id="admissionEmail" required
                             style="width: 100%; padding: 10px; border: 1px solid var(--color-gray-300); border-radius: 4px;"
                             placeholder="john@example.com">
                     </div>
                     <div style="margin-bottom: var(--spacing-md);">
                         <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Program of
-                            Interest</label>
-                        <select id="admissionProgram"
+                            Interest <span style="color: var(--color-red);">*</span></label>
+                        <select id="admissionProgram" required
                             style="width: 100%; padding: 10px; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+                            <option value="">Select a program...</option>
                             <option>EBAC'S</option>
                             <option>EBAS</option>
                             <option>PCMB</option>

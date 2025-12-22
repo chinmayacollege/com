@@ -122,30 +122,30 @@
                     <h2 class="h2" style="margin-bottom: var(--spacing-lg);">Send a Message</h2>
                     <form id="contactForm">
                         <div style="margin-bottom: var(--spacing-md);">
-                            <label
-                                style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Name</label>
-                            <input type="text" id="contactName"
+                            <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Name
+                                <span style="color: var(--color-red);">*</span></label>
+                            <input type="text" id="contactName" required
                                 style="width: 100%; padding: 12px; border: 1px solid var(--color-gray-300); border-radius: 4px; transition: border-color 0.2s;"
                                 placeholder="Your Name">
                         </div>
                         <div style="margin-bottom: var(--spacing-md);">
-                            <label
-                                style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Email</label>
-                            <input type="email" id="contactEmail"
+                            <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Email
+                                <span style="color: var(--color-red);">*</span></label>
+                            <input type="email" id="contactEmail" required
                                 style="width: 100%; padding: 12px; border: 1px solid var(--color-gray-300); border-radius: 4px;"
                                 placeholder="your@email.com">
                         </div>
                         <div style="margin-bottom: var(--spacing-md);">
-                            <label
-                                style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Subject</label>
-                            <input type="text" id="contactSubject"
+                            <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Subject
+                                <span style="color: var(--color-red);">*</span></label>
+                            <input type="text" id="contactSubject" required
                                 style="width: 100%; padding: 12px; border: 1px solid var(--color-gray-300); border-radius: 4px;"
                                 placeholder="Inquiry about...">
                         </div>
                         <div style="margin-bottom: var(--spacing-md);">
-                            <label
-                                style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Message</label>
-                            <textarea id="contactMessage"
+                            <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Message
+                                <span style="color: var(--color-red);">*</span></label>
+                            <textarea id="contactMessage" required
                                 style="width: 100%; padding: 12px; border: 1px solid var(--color-gray-300); border-radius: 4px; min-height: 150px;"
                                 placeholder="How can we help you?"></textarea>
                         </div>
