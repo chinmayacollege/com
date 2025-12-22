@@ -218,41 +218,73 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fullscreen functionality for videos
         const videos = document.querySelectorAll('.video-carousel-card video');
 
-        videos.forEach(video => {
+        videos.forEach((video, index) => {
+            const card = video.closest('.video-carousel-card');
+
+            // Create fullscreen button overlay
+            const fullscreenBtn = document.createElement('div');
+            fullscreenBtn.className = 'video-fullscreen-btn';
+            fullscreenBtn.innerHTML = '⛶';
+            fullscreenBtn.setAttribute('aria-label', 'Enter fullscreen');
+            card.appendChild(fullscreenBtn);
+
             // Function to request fullscreen with cross-browser support
             const openFullscreen = (elem) => {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.webkitEnterFullscreen) { /* iOS Safari */
-                    elem.webkitEnterFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
+                try {
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+                    } else if (elem.webkitRequestFullscreen) { /* Safari */
+                        elem.webkitRequestFullscreen();
+                    } else if (elem.webkitEnterFullscreen) { /* iOS Safari */
+                        elem.webkitEnterFullscreen();
+                    } else if (elem.msRequestFullscreen) { /* IE11 */
+                        elem.msRequestFullscreen();
+                    }
+                    // Play video when entering fullscreen
+                    setTimeout(() => video.play(), 100);
+                } catch (err) {
+                    console.log('Fullscreen not supported:', err);
                 }
             };
 
-            // Click event to open fullscreen
-            video.addEventListener('click', (e) => {
-                // Don't interfere with native controls
-                if (e.target === video) {
-                    openFullscreen(video);
-                    // Auto-play when entering fullscreen
-                    video.play();
+            // Fullscreen button click handler
+            fullscreenBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openFullscreen(video);
+            });
+
+            // Touch handler for video area (simplified single tap)
+            let touchStartTime = 0;
+            video.addEventListener('touchstart', (e) => {
+                touchStartTime = Date.now();
+            }, { passive: true });
+
+            video.addEventListener('touchend', (e) => {
+                const touchDuration = Date.now() - touchStartTime;
+                // If it's a quick tap (not a long press or scroll)
+                if (touchDuration < 200) {
+                    // Check if tap is on video area (not controls)
+                    const touch = e.changedTouches[0];
+                    const videoRect = video.getBoundingClientRect();
+                    const tapY = touch.clientY - videoRect.top;
+                    const videoHeight = videoRect.height;
+
+                    // If tap is in upper 70% of video (not on controls at bottom)
+                    if (tapY < videoHeight * 0.7) {
+                        e.preventDefault();
+                        openFullscreen(video);
+                    }
                 }
             });
 
-            // Double-tap for mobile devices
-            let lastTap = 0;
-            video.addEventListener('touchend', (e) => {
-                const currentTime = new Date().getTime();
-                const tapLength = currentTime - lastTap;
-                if (tapLength < 300 && tapLength > 0) {
-                    e.preventDefault();
-                    openFullscreen(video);
-                    video.play();
+            // Desktop click handler
+            video.addEventListener('click', (e) => {
+                // Only on desktop (non-touch devices)
+                if (!('ontouchstart' in window)) {
+                    if (e.target === video) {
+                        openFullscreen(video);
+                    }
                 }
-                lastTap = currentTime;
             });
         });
     }
