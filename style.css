@@ -852,6 +852,31 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.video-carousel-card video:hover {
+  transform: scale(1.02);
+}
+
+/* Fullscreen video styles */
+video:fullscreen,
+video:-webkit-full-screen,
+video:-moz-full-screen,
+video:-ms-fullscreen {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black;
+}
+
+video::backdrop {
+  background: black;
+}
+
+video::-webkit-media-controls-panel {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .video-carousel-card .caption-bar {

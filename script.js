@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000); // Change image every 4 seconds
     }
 
+
     // 3D Video Carousel Rotation & Navigation
     const carouselSection = document.querySelector('.video-carousel-container');
     const carouselVideo = document.querySelector('.video-carousel');
@@ -188,6 +189,47 @@ document.addEventListener('DOMContentLoaded', () => {
         carouselSection.addEventListener('touchstart', () => {
             isPaused = true;
             setTimeout(() => { isPaused = false; }, 5000);
+        });
+
+        // Fullscreen functionality for videos
+        const videos = document.querySelectorAll('.video-carousel-card video');
+
+        videos.forEach(video => {
+            // Function to request fullscreen with cross-browser support
+            const openFullscreen = (elem) => {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.webkitEnterFullscreen) { /* iOS Safari */
+                    elem.webkitEnterFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+            };
+
+            // Click event to open fullscreen
+            video.addEventListener('click', (e) => {
+                // Don't interfere with native controls
+                if (e.target === video) {
+                    openFullscreen(video);
+                    // Auto-play when entering fullscreen
+                    video.play();
+                }
+            });
+
+            // Double-tap for mobile devices
+            let lastTap = 0;
+            video.addEventListener('touchend', (e) => {
+                const currentTime = new Date().getTime();
+                const tapLength = currentTime - lastTap;
+                if (tapLength < 300 && tapLength > 0) {
+                    e.preventDefault();
+                    openFullscreen(video);
+                    video.play();
+                }
+                lastTap = currentTime;
+            });
         });
     }
 });
