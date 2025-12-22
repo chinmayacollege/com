@@ -38,11 +38,19 @@
   --transition-normal: 0.3s ease;
 }
 
+
 /* Reset & Base */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
@@ -57,11 +65,17 @@ body {
   background-attachment: fixed;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul {
@@ -71,6 +85,36 @@ ul {
 img {
   max-width: 100%;
   display: block;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 /* Typography Utilities */
