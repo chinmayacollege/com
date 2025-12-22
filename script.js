@@ -141,13 +141,37 @@ document.addEventListener('DOMContentLoaded', () => {
         let isPaused = false;
 
         const updateActiveCard = () => {
-            cards.forEach(card => card.classList.remove('active'));
+            cards.forEach((card, idx) => {
+                card.classList.remove('active');
+                const video = card.querySelector('video');
+                if (video) {
+                    // Mute all videos by default
+                    video.muted = true;
+                }
+            });
+
             // Normalize rotation to 0-3 index
             let normalizedRotation = ((rotation % 360) + 360) % 360;
             let index = Math.round(normalizedRotation / 90);
             // Invert index because rotation negative is forward
             let finalIndex = (index === 0) ? 0 : (4 - index) % 4;
-            if (cards[finalIndex]) cards[finalIndex].classList.add('active');
+
+            if (cards[finalIndex]) {
+                cards[finalIndex].classList.add('active');
+                const activeVideo = cards[finalIndex].querySelector('video');
+
+                if (activeVideo) {
+                    // Unmute for videos 1 and 3 (index 1 and 3)
+                    // Video 0: college-function.mp4 (muted)
+                    // Video 1: college-highlight-1.mp4 (unmuted)
+                    // Video 2: college-highlight-2.mp4 (muted)
+                    // Video 3: college-highlight-3.mp4 (unmuted)
+                    if (finalIndex === 1 || finalIndex === 3) {
+                        activeVideo.muted = false;
+                        activeVideo.volume = 0.7; // Set volume to 70%
+                    }
+                }
+            }
         };
 
         const rotateNext = () => {
