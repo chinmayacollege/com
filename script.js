@@ -145,7 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.remove('active');
                 const video = card.querySelector('video');
                 if (video) {
-                    // Mute all videos by default
+                    // Pause and mute all videos by default
+                    video.pause();
                     video.muted = true;
                 }
             });
@@ -161,14 +162,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const activeVideo = cards[finalIndex].querySelector('video');
 
                 if (activeVideo) {
-                    // Unmute for videos 1 and 3 (index 1 and 3)
-                    // Video 0: college-function.mp4 (muted)
-                    // Video 1: college-highlight-1.mp4 (unmuted)
-                    // Video 2: college-highlight-2.mp4 (muted)
-                    // Video 3: college-highlight-3.mp4 (unmuted)
+                    // Unmute and play for videos 1 and 3 (index 1 and 3)
+                    // Video 0: college-function.mp4 (muted, autoplay)
+                    // Video 1: college-highlight-1.mp4 (unmuted, autoplay)
+                    // Video 2: college-highlight-2.mp4 (muted, autoplay)
+                    // Video 3: college-highlight-3.mp4 (unmuted, autoplay)
                     if (finalIndex === 1 || finalIndex === 3) {
                         activeVideo.muted = false;
                         activeVideo.volume = 0.7; // Set volume to 70%
+
+                        // Try to play with sound
+                        activeVideo.play().catch(err => {
+                            console.log('Autoplay with sound blocked, trying muted:', err);
+                            // If autoplay with sound fails, fallback to muted
+                            activeVideo.muted = true;
+                            activeVideo.play().catch(err2 => {
+                                console.log('Autoplay failed completely:', err2);
+                            });
+                        });
+                    } else {
+                        // Muted videos (0 and 2) - autoplay should work
+                        activeVideo.muted = true;
+                        activeVideo.play().catch(err => {
+                            console.log('Muted autoplay failed:', err);
+                        });
                     }
                 }
             }
@@ -214,6 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
             isPaused = true;
             setTimeout(() => { isPaused = false; }, 5000);
         });
+
+        // Initialize first video to play
+        updateActiveCard();
 
         // Fullscreen functionality for videos
         const videos = document.querySelectorAll('.video-carousel-card video');
