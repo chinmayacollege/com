@@ -2,7 +2,7 @@
   "name": "Chinmaya PU and Degree College",
   "short_name": "Chinmaya College",
   "description": "Chinmaya PU and Degree College - Best college in Kolar offering quality education in PU and Degree programs",
-  "start_url": "/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1a73e8",

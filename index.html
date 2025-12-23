@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="ZUblR7MHaStFLpe_7khZEo4LXsl0EfCmSRUYmuplt3s" />
+    <meta name="google-site-verification" content="hqTxurXSJr9-c85xJxdZRxEcTOdWq8UJBl7-GdwF5FA" />
+
 
     <!-- SEO Meta Tags -->
     <meta name="description"
@@ -41,10 +43,24 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <title>Chinmaya PU and Degree College - Best College in Kolar | Chinmaya College</title>
+
+    <!-- Resource Prioritization -->
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+        as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="style.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+            rel="stylesheet">
+    </noscript>
+
     <link rel="icon" type="image/jpeg" href="images/chinmaya-pu-college-logo.jpg">
     <link rel="apple-touch-icon" href="images/chinmaya-pu-college-logo.jpg">
     <link rel="manifest" href="manifest.json">
@@ -125,7 +141,8 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="images/chinmaya-pu-college-logo.jpg" alt="Chinmaya College Logo">
+                <img src="images/chinmaya-pu-college-logo.jpg" alt="Chinmaya College Logo" fetchpriority="high"
+                    width="36" height="36">
                 Chinmaya College
             </a>
             <button class="mobile-menu-btn">☰</button>
@@ -154,7 +171,8 @@
             <div class="hero-cards">
                 <div class="card">
                     <div class="card-image">
-                        <img src="images/expert-faculty-growth.png" alt="Expert Faculty Growth">
+                        <img src="images/expert-faculty-growth.png" alt="Expert Faculty Growth" loading="lazy"
+                            decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title h3">Expert Faculty</h3>
@@ -165,11 +183,16 @@
                 </div>
                 <div class="card gallery-card">
                     <div class="card-image dynamic-gallery">
-                        <img src="images/home/chinmaya-college-campus-entrance.jpg" alt="Campus Life" class="active">
-                        <img src="images/home/chinmaya-college-floral-celebration.jpg" alt="Campus Event">
-                        <img src="images/home/chinmaya-college-student-activities.jpg" alt="College Activities">
-                        <img src="images/home/chinmaya-college-floral-rangoli-art.jpg" alt="Cultural Program">
-                        <img src="images/home/chinmaya-college-morning-assembly.jpg" alt="Student Celebration">
+                        <img src="images/home/chinmaya-college-campus-entrance.jpg" alt="Campus Life" class="active"
+                            loading="lazy" decoding="async">
+                        <img src="images/home/chinmaya-college-floral-celebration.jpg" alt="Campus Event" loading="lazy"
+                            decoding="async">
+                        <img src="images/home/chinmaya-college-student-activities.jpg" alt="College Activities"
+                            loading="lazy" decoding="async">
+                        <img src="images/home/chinmaya-college-floral-rangoli-art.jpg" alt="Cultural Program"
+                            loading="lazy" decoding="async">
+                        <img src="images/home/chinmaya-college-morning-assembly.jpg" alt="Student Celebration"
+                            loading="lazy" decoding="async">
                     </div>
                     <div class="card-content">
                         <h3 class="card-title h3">Campus Life</h3>
@@ -246,28 +269,32 @@
                 <div class="video-carousel">
                     <!-- Video 1 -->
                     <div class="video-carousel-card active">
-                        <video controls autoplay muted loop playsinline>
+                        <video controls preload="metadata" muted loop playsinline
+                            poster="images/home/chinmaya-college-campus-entrance.jpg">
                             <source src="video/college-function.mp4" type="video/mp4">
                         </video>
                         <div class="caption-bar">Annual Function 2023</div>
                     </div>
                     <!-- Video 2 -->
                     <div class="video-carousel-card">
-                        <video controls autoplay muted loop playsinline>
+                        <video controls preload="none" muted loop playsinline
+                            poster="images/home/chinmaya-college-student-activities.jpg">
                             <source src="video/college-highlight-1.mp4" type="video/mp4">
                         </video>
                         <div class="caption-bar">Campus Glimpses</div>
                     </div>
                     <!-- Video 3 -->
                     <div class="video-carousel-card">
-                        <video controls autoplay muted loop playsinline>
+                        <video controls preload="none" muted loop playsinline
+                            poster="images/home/chinmaya-college-floral-rangoli-art.jpg">
                             <source src="video/college-highlight-2.mp4" type="video/mp4">
                         </video>
                         <div class="caption-bar">Floral Rangoli Art</div>
                     </div>
                     <!-- Video 4 -->
                     <div class="video-carousel-card">
-                        <video controls autoplay muted loop playsinline>
+                        <video controls preload="none" muted loop playsinline
+                            poster="images/home/chinmaya-college-morning-assembly.jpg">
                             <source src="video/college-highlight-3.mp4" type="video/mp4">
                         </video>
                         <div class="caption-bar">Student Celebrations</div>
@@ -294,7 +321,8 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo" style="margin-bottom: var(--spacing-md);">
-                        <img src="images/chinmaya-pu-college-logo.jpg" alt="Chinmaya College Logo">
+                        <img src="images/chinmaya-pu-college-logo.jpg" alt="Chinmaya College Logo" loading="lazy"
+                            decoding="async" width="36" height="36">
                         Chinmaya College
                     </a>
                     <p style="color: var(--color-gray-700); max-width: 300px;">
@@ -340,7 +368,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

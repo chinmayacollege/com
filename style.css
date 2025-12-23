@@ -402,6 +402,8 @@ button {
 /* Hero Section */
 .hero {
   padding: 120px 0;
+  background-color: var(--color-gray-900);
+  /* Fallback color */
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('images/home/chinmaya-pu-college-building-kolar.jpg');
   background-size: cover;
   background-position: center;
@@ -411,6 +413,12 @@ button {
   display: flex;
   align-items: center;
   color: var(--color-white);
+  will-change: transform;
+}
+
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
 }
 
 .hero-content {
