@@ -62,7 +62,10 @@ body {
     radial-gradient(at 100% 0%, rgba(219, 68, 55, 0.1) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(244, 180, 0, 0.1) 0px, transparent 50%),
     radial-gradient(at 0% 100%, rgba(15, 157, 88, 0.1) 0px, transparent 50%);
-  background-attachment: fixed;
+  background-attachment: scroll;
+  /* Changed from fixed for better performance */
+  background-position: center;
+  background-size: cover;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -407,7 +410,8 @@ button {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url('images/home/chinmaya-pu-college-building-kolar.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  /* Performance fix */
   overflow: hidden;
   min-height: 80vh;
   display: flex;
@@ -418,7 +422,8 @@ button {
 
 section {
   content-visibility: auto;
-  contain-intrinsic-size: 1px 5000px;
+  contain-intrinsic-size: 1px 1000px;
+  contain: content;
 }
 
 .hero-content {
@@ -521,6 +526,7 @@ section {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  will-change: transform, opacity;
 }
 
 .card:hover {

@@ -18,6 +18,70 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://chinmayacollege.edu.in/">
 
+    <!-- Critical CSS for Instant Paint -->
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--color-gray-200);
+            padding: var(--spacing-sm) 0;
+            transition: all var(--transition-normal);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .05)
+        }
+
+        .hero {
+            padding: 120px 0;
+            background-color: var(--color-gray-900);
+            background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .5)), url(images/home/chinmaya-pu-college-building-kolar.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            color: var(--color-white);
+            will-change: transform
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg)
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            white-space: nowrap
+        }
+
+        :root {
+            --color-gray-900: #202124;
+            --color-gray-200: #e8eaed;
+            --spacing-sm: 8px;
+            --spacing-lg: 24px;
+            --transition-normal: .3s ease
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Product Sans', Roboto, sans-serif;
+            overflow-x: hidden
+        }
+    </style>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://chinmayacollege.edu.in/">

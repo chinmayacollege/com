@@ -245,8 +245,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize first video to play
         updateActiveCard();
-
-        // Fullscreen functionality removed per user request
-        // Videos will use native browser controls for fullscreen
     }
+
+    // Instant Page (Prefetch on hover)
+    const prefetchPage = (url) => {
+        if (!url || url.startsWith('#') || url.includes('mailto:') || url.includes('tel:')) return;
+        if (document.querySelector(`link[href="${url}"]`)) return;
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = url;
+        document.head.appendChild(link);
+    };
+
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('mouseenter', () => prefetchPage(link.getAttribute('href')), { once: true });
+        link.addEventListener('touchstart', () => prefetchPage(link.getAttribute('href')), { once: true });
+    });
+
+    // Mobile Scroll Performance
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }, { passive: true });
 });
