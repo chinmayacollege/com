@@ -40,17 +40,17 @@
 
 
 /* Reset & Base */
-* {
+html {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -525,12 +525,12 @@ section {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  height: auto;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+  /* Prevent child overflow */
   text-align: center;
 }
 
