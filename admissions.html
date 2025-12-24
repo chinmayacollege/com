@@ -139,29 +139,21 @@
     <!-- Application Form Section -->
     <section id="apply" class="section" style="background-color: var(--color-gray-50);">
         <div class="container">
-            <div class="form-container"
-                style="max-width: 600px; margin: 0 auto; background: white; padding: var(--spacing-xl); border-radius: 8px; box-shadow: var(--shadow-2);">
+            <div class="form-container centered-form">
                 <h2 class="h2" style="margin-bottom: var(--spacing-lg); text-align: center;">Request Information</h2>
                 <form id="admissionForm">
-                    <div style="margin-bottom: var(--spacing-md);">
-                        <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Full
-                            Name <span style="color: var(--color-red);">*</span></label>
-                        <input type="text" id="admissionName" required
-                            style="width: 100%; padding: 10px; border: 1px solid var(--color-gray-300); border-radius: 4px;"
-                            placeholder="John Doe">
+                    <div class="form-group">
+                        <label class="form-label">Full Name<span>*</span></label>
+                        <input type="text" id="admissionName" required class="form-input" placeholder="John Doe">
                     </div>
-                    <div style="margin-bottom: var(--spacing-md);">
-                        <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Email
-                            Address <span style="color: var(--color-red);">*</span></label>
-                        <input type="email" id="admissionEmail" required
-                            style="width: 100%; padding: 10px; border: 1px solid var(--color-gray-300); border-radius: 4px;"
+                    <div class="form-group">
+                        <label class="form-label">Email Address<span>*</span></label>
+                        <input type="email" id="admissionEmail" required class="form-input"
                             placeholder="john@example.com">
                     </div>
-                    <div style="margin-bottom: var(--spacing-md);">
-                        <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 500;">Program of
-                            Interest <span style="color: var(--color-red);">*</span></label>
-                        <select id="admissionProgram" required
-                            style="width: 100%; padding: 10px; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+                    <div class="form-group">
+                        <label class="form-label">Program of Interest<span>*</span></label>
+                        <select id="admissionProgram" required class="form-select">
                             <option value="">Select a program...</option>
                             <option>EBAC'S</option>
                             <option>EBAS</option>
@@ -171,7 +163,7 @@
                             <option>BCA</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request</button>
+                    <button type="submit" class="btn btn-primary form-submit-btn">Submit Request</button>
                 </form>
             </div>
         </div>
